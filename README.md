@@ -10,7 +10,7 @@
   * Model: Autoencoder
 
 * [Deep Convolutional Autoencoders for reconstructing magnetic resonance images of the healthy brain](https://github.com/AdrianArnaiz/Brain-MRI-Autoencoder): [Conv-Autoencoder-of-Healthy-Brain]
-  * Dataset: 
+  * Dataset: [IXI](https://brain-development.org/ixi-dataset/)
   * Model: Autoencoder
   * Papers: [Master's Thesis. Master's in Data Science at Universitat Oberta de Catalunya](http://hdl.handle.net/10609/127059)
 * 

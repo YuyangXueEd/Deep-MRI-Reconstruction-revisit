@@ -49,4 +49,35 @@ In order to get images with relevant information, we have recompiled some main m
 
 ![IXI No Relevant Information](imgs/IXI_No_Info.png)
 
-**Brain MRI preprocessing** differs depending on the objective. Some of the studies use the images of the dataset directly as the _target output_ of the network. Other works *enhance the image quality and contrast* before sending it like target output. *Downsampling* the input images could be also useful to reduce the number of parameters of the network.
+**Brain MRI preprocessing** differs depending on the objective. Some of the studies use the images of the dataset directly as the _target output_ of the network. Other works *enhance the image quality and contrast* before sending it like target output. *Downsampling* the input images could be also useful to reduce the number of parameters of the network. The resolution of the input image should be balanced between usability and trainability. We can *normalize the intensity* of pixels. Normalization of the inputs helps the training of the network due to several reasons. *Affine transformation* like translation or rotation could be applied. We can realize *data augmentation* in real-time by adding Gaussian noise, or cropping some parts.
+
+## Scope
+
+We will build an autoencoder for reconstructing T1-weighted brain MRI. It will learn how to encode the underlying structure healthy brains in a lower-dimension space, and reconstruct the MRI from this space. Image quality will be improved reducing noise and artifiacts and also could be used for lesion inpainting.
+
+## Methodology
+
+The methodology that best suits the project is the CRoss-Industry Standard Process for Data Mining (CRISP-DM) in a framework used for creating and deploying machine learning solutions. It has a iterative cycle, in which data, data preparation, modeling and evaluation are improved with the previous iteration feedback.
+
+![CRISP-DM Cycle](imgs/CRISP-DM.png)
+
+* Data Understanding: we should research the data sources as IXI, data quality and we should explore the data and its characteristics.
+* Data Preparation: Data should be cleaned, filtered, selected and integrated if necessary. We could carry out tasks like preprocessing T1 weighted brain MRI or realize data augmentation.
+* Modeling: Specify the model to use and the architecture, parameters. It can be an iterative process.
+* Evaluation: We must evaluate models properly to get meaning ful conclusions.
+
+## Project Development
+
+### Pipeline and overview
+
+![Pipeline of the project](imgs/pipeline.png)
+
+1. We explore all the original NIFTI volumes. We select the best profile of the volumes to get the 2D images, we check the orientation of the slices and we extract the 2D images with relevant information.
+2. We split the MRI volumes into 2 separated sets: train/validation and test. It is going to be a stratified splitting by age, sex, and ethnicity. We also check for duplicates and more information about the volumes such as relevant slices of each volume.
+3. We define different architectures and a custom data loader in order to carry out these experiments with data augmentation in an optimized way. We run experiments with different architectures, with an without data augmentation, with and without L2 regularization and also using MSE and DSSIM loss functions.
+4. We get the test metrics, we compare them all, and we also compare the models in a qualitative way.
+
+### Dataset
+
+#### Exploration and Preprocessing
+
