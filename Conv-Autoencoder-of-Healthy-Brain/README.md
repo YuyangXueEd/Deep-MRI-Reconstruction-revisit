@@ -5,6 +5,8 @@
 
 ## Overview
 
+The programming environment setup is shown in [Setup.ipynb](Setup.ipynb).
+
 Purpose: **Learn MRI representation for reconstruction**.
 
 Image reconstruction which is a mainly sub-problem of image enhancement, could help to achieve better results in:
@@ -81,3 +83,4 @@ The methodology that best suits the project is the CRoss-Industry Standard Proce
 
 #### Exploration and Preprocessing
 
+We are going to work with [IXI brain T1-weighted MRI dataset](https://brain-development.org/ixi-dataset/). This public dataset composed by MRI images in NIFTI format. An initial exploration of the characteristics of this dataset could be seen in [MRI-nibabel.ipynb](MRI-nibabel.ipynb) and also some ddeper ones are discovered while profile selection, orientation checking, selection of relevant slices and data splitting.
